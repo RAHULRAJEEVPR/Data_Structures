@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do, learning</title>
+    <style>
+        .bg-black {
+            background-color: rgb(31, 30, 30);
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">Dom learning</h1>
+        <div class="parent">
+            <div class="day">Monday</div>
+            <div class="day">tuesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">thursday</div>
+        </div>
+    </div>
+    <ul class="language">
+
+    </ul>
+</body>
+<script>
+    const parent = document.querySelector(".parent")
+    const day1 = document.querySelector(".day")
+    // console.log(parent.firstElementChild)
+    // console.log(day1.nextElementSibling);
+    // console.log("node : ",parent.childNodes);
+    const div = document.createElement("div")
+    console.log(div)
+    div.className = "main"
+    //to adding attribute 
+    div.setAttribute("title", "generated title")
+    //added a text node
+    const textNode = document.createTextNode("learnig text node")
+    div.appendChild(textNode)
+    document.body.appendChild(div)
+    //...............
+    //remove or edit node
+
+    function addLanguage(langName) {
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li)
+    }
+    addLanguage("hindi")
+    addLanguage("english")
+
+    // edit  replaceing english wiht mojo
+    const secondLang = document.querySelector("li:nth-child(2)")
+    const newLi = document.createElement("li")
+    newLi.appendChild(document.createTextNode("Mojo"))
+  secondLang.replaceWith(newLi)
+
+  //remove
+  const lastLand=document.querySelector("li:last-child")
+  lastLand.remove()
+</script>
+
+</html>
